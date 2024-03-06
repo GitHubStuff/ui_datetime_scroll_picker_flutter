@@ -1,4 +1,4 @@
-# bundleSuffix
+# scroll_picker_app
 
 - **LAST UPDATED 05-MAR-2024**
 
@@ -12,13 +12,13 @@ A complete, self-contained, Flutter app that is the starting point for an **App*
 
 ### These are the steps when using VSCode
 
-- Find/Replace `app_template` to name of the flutter name of the app (ex: `my_spiffy_app`)
-- Find/Replace `MyAppName` to a label used to name the app on mobile Platforms (ex:`My Spiffy Mobile App`)
-- Find/Replace `macOSName` to the name of your macOS app (ex: `My Spiffy macOS App`)
-- Find/Replace `my.domain` to the project down for the product/customer (ex: `apple.com`)
-- Find/Replace `reverse.domain` with the projects **reverse domain** that the start of the apps' identifier (ex: `com.apple`)
-- Find/Replace `bundleSuffix` with bundle id (ex: `my_spiffy_app`) **[using the folder name is ideal]**
-- Find/Replace `AppleSuffix` for Apple bundles as iOS/MacOS do like '_'. **[ideal is folder name to lower-camel case (ex: `mySpiffyApp`)]**
+- Find/Replace `picker_app` to name of the flutter name of the app (ex: `my_spiffy_app`)
+- Find/Replace `Scrolling Picker` to a label used to name the app on mobile Platforms (ex:`My Spiffy Mobile App`)
+- Find/Replace `Scrolling Picker for Mac` to the name of your macOS app (ex: `My Spiffy macOS App`)
+- Find/Replace `icodeforyou.com` to the project down for the product/customer (ex: `apple.com`)
+- Find/Replace `com.icodeforyou` with the projects **reverse domain** that the start of the apps' identifier (ex: `com.apple`)
+- Find/Replace `scroll_picker_app` with bundle id (ex: `my_spiffy_app`) **[using the folder name is ideal]**
+- Find/Replace `scrollPickerApp` for Apple bundles as iOS/MacOS do like '_'. **[ideal is folder name to lower-camel case (ex: `mySpiffyApp`)]**
 - The image `/assets/images/ltmm1024x1024.png` is a placeholder image to generate application icons. In the `pubspec.yaml` file is section marked *flutter_icons*:
 
   ```dart
