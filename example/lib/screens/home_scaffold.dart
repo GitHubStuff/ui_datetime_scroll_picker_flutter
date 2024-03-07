@@ -23,13 +23,17 @@ class HomeScaffold extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 200,
-            height: 200,
+            width: 50,
+            height: 50,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Assets.images.ltmm1024x1024.image(),
+              child: Assets.images.clockCalendar.image(),
             ),
           ),
+          const SizedBox(height: 10),
+          UIDateTimePicker(
+              onDateTimeSelected: (dateTime) =>
+                  debugPrint(dateTime.toIso8601String())),
         ],
       ),
     );

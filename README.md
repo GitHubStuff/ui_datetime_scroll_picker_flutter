@@ -1,8 +1,6 @@
-# SETUP
+# Purpose
 
-- Find/Replace `ui_datetime_scroll_picker_flutter` to name of the name of the package (ex: `flutter_rocks`)
-- Addess the *TODO:* in the **/example** folder by adding code from the package
-- If needed/wanted follow the instructions in the **/example/README.md** to have the example app more reflective of your package and show off features of widget packages.
+Provides a date/time picker that uses Cupertino Scroll Widgets to set month/day/year and hour/minute/second in a small sized widget (optimal size is 230w X 250h)
 
 <!--
 The comments below are from the Flutter/Dart package generation. Feel free to use or ignore
@@ -21,29 +19,51 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Uses less space then other widgets.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+dependencies:
+  ui_datetime_scroll_picker_flutter:
+    git: https://github.com/GitHubStuff/ui_datetime_scroll_picker_flutter.git
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+UIDateTimePicker(
+    onDateTimeSelected: (dateTime) => debugPrint(dateTime.toIso8601String())),
 ```
 
-## Additional information
+## Widget declaration
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+UIDateTimePicker({
+    super.key,
+    required this.onDateTimeSelected,
+    DateTime? dateTime,
+    DateFormat? dateFormat,
+    this.pickerTextStyle = _kPickerTextStyle,
+    this.titleTextStyle = _kTitleTextStyle,
+    this.datePickerColor = _kDatePickerColor,
+    this.dateText = _kDateButtonText,
+    this.headerColor = _kHeaderColor,
+    this.acceptButton = const AquaButton(
+      mainRadius: 22.0,
+      materialColor: Colors.green,
+    ),
+    this.showFirstWidget = true,
+    this.size = _kDefaultSize,
+    this.textColor = _kTextColor,
+    this.timePickerColor = _kTimePickerColor,
+    this.timeText = _kTimeButtonText,
+  })  : dateTime = dateTime ?? DateTime.now(),
+        dateFormat = dateFormat ?? _kDateFormat;
+```
+
+## Finally
+
+Be kind to each other!

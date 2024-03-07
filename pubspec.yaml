@@ -11,8 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  auto_size_text: ^3.0.0 # Flutter widget that automatically resizes text to fit perfectly within its bounds.
+  intl: ^0.19.0
+  ui_aqua_button_flutter:
+    git: https://github.com/GitHubStuff/ui_aqua_button_flutter.git
   ui_extensions_flutter:
     git: https://github.com/GitHubStuff/ui_extensions_flutter.git
+  ui_marquee_flutter:
+    git: https://github.com/GitHubStuff/ui_marquee_flutter.git
 
 dev_dependencies:
   flutter_test:
