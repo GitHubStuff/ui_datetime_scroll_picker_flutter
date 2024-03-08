@@ -7,10 +7,12 @@ import 'package:ui_aqua_button_flutter/ui_aqua_button_flutter.dart';
 import 'package:ui_extensions_flutter/ui_extensions_flutter.dart';
 import 'package:ui_marquee_flutter/ui_marguee_flutter.dart';
 
-import 'ui_date_picker_wheel.dart';
-import 'ui_time_picker_wheel.dart';
+import '../picker/ui_date_picker_wheel.dart';
+import '../picker/ui_time_picker_wheel.dart';
 
-part 'date_time_caption.dart'; // Part file containing the DateTimeCaption class
+part '../picker/date_time_caption.dart'; // Part file containing the DateTimeCaption class
+
+const Size kDateTimePickerSize = Size(230, 250);
 
 // Constants for colors, dimensions, and durations
 const Color _kDatePickerColor = Colors.black;
@@ -19,7 +21,6 @@ const Color _kTextColor = Color(0xffffd600);
 const Color _kTimePickerColor = Color.fromARGB(255, 14, 4, 100);
 const double _kItemExtent = 30.0;
 const Duration _kCrossFadeDuration = Duration(milliseconds: 500);
-const Size _kDefaultSize = Size(230, 250);
 const TextStyle _kPickerTextStyle = TextStyle(color: _kTextColor);
 const TextStyle _kTitleTextStyle =
     TextStyle(fontWeight: FontWeight.bold, color: _kTextColor);
@@ -55,7 +56,7 @@ class UIDateTimePicker extends StatefulWidget {
       materialColor: Colors.green,
     ),
     this.showFirstWidget = true,
-    this.size = _kDefaultSize,
+    this.size = kDateTimePickerSize,
     this.textColor = _kTextColor,
     this.timePickerColor = _kTimePickerColor,
     this.timeText = _kTimeButtonText,
@@ -107,6 +108,7 @@ class _UIDateTimePicker extends State<UIDateTimePicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // Prevents the height from being zero which throws sizing error
       height: max(widget.size.height, 0.00000000001),
       width: widget.size.width,
       color: Colors.transparent,

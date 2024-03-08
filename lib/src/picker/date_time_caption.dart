@@ -1,4 +1,4 @@
-part of 'ui_datetime_picker.dart';
+part of '../widget/ui_datetime_picker.dart';
 
 class DateTimeCaption extends StatelessWidget {
   final String caption;
