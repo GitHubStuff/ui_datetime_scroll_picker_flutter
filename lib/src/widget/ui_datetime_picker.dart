@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dart_datetime/dart_datetime.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ui_aqua_button_flutter/ui_aqua_button_flutter.dart';
@@ -145,9 +146,9 @@ class _UIDateTimePicker extends State<UIDateTimePicker> {
           Flexible(
             fit: FlexFit.tight,
             child: GestureDetector(
-              onTap: () => widget.onDateTimeSelected(dateTime),
+              onTap: () => widget.onDateTimeSelected(makeUtc(dateTime)),
               child: widget.acceptButton,
-            ).padding(left: 0.0, top: 4.0, bottom: 4.0),
+            ).padding(left: 2.0, top: 4.0, bottom: 4.0),
           ),
         ],
       ).paddingAll(3.0),
