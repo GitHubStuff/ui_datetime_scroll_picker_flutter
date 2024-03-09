@@ -74,7 +74,7 @@ class _UIDatePickerWheel extends State<UIDatePickerWheel> {
   void initState() {
     super.initState();
     selectedYear = widget.dateTime.year;
-    selectedMonth = widget.dateTime.month;
+    selectedMonth = widget.dateTime.month + 12;
     selectedDay = widget.dateTime.day;
     previousDateTime = widget.dateTime;
     backgroundColor = widget.backgroundColor;
