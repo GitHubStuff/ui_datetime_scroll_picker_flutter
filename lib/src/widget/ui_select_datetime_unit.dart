@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 class UISelectDateTimeUnit extends StatefulWidget {
   final DateTimeUnit initialUnit;
   final Function(DateTimeUnit) onChanged;
+  final bool showMillsecond;
+  final bool showMicroSecond;
 
   const UISelectDateTimeUnit({
     super.key,
     required this.initialUnit,
     required this.onChanged,
-  })  : assert(initialUnit != DateTimeUnit.msec, 'Cannot specify Millisecond'),
-        assert(initialUnit != DateTimeUnit.usec, 'Cannot specify Microsecond');
+    this.showMillsecond = false,
+    this.showMicroSecond = false,
+  });
 
   @override
   State<UISelectDateTimeUnit> createState() => _UISelectDateTimeUnit();
@@ -18,11 +21,15 @@ class UISelectDateTimeUnit extends StatefulWidget {
 
 class _UISelectDateTimeUnit extends State<UISelectDateTimeUnit> {
   late DateTimeUnit selectedValue;
+  late bool showMillisecond;
+  late bool showMicroSecond;
 
   @override
   void initState() {
     super.initState();
     selectedValue = widget.initialUnit;
+    showMicroSecond = widget.showMicroSecond;
+    showMillisecond = showMicroSecond || widget.showMillsecond;
   }
 
   @override
@@ -47,6 +54,15 @@ class _UISelectDateTimeUnit extends State<UISelectDateTimeUnit> {
               radioButton(DateTimeUnit.second),
             ],
           ),
+          if (showMicroSecond || showMillisecond)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                if (showMillisecond) radioButton(DateTimeUnit.msec),
+                if (showMicroSecond) radioButton(DateTimeUnit.usec),
+                Expanded(child: Container()),
+              ],
+            ),
         ],
       ),
     );

@@ -2,23 +2,6 @@
 
 Provides a date/time picker that uses Cupertino Scroll Widgets to set month/day/year and hour/minute/second in a small sized widget (optimal size is 230w X 250h)
 
-<!--
-The comments below are from the Flutter/Dart package generation. Feel free to use or ignore
--->
-
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
 ## Features
 
 Uses less space then other widgets.
@@ -41,7 +24,7 @@ import 'package:ui_datetime_scroll_picker_flutter/ui_datetime_scroll_picker_flut
 
 ## Usage
 
-There are three was to utilize this package:
+There are three(3) was to utilize this package:
 
 1 - To have the DateTime Picker appears as an overlay, use **dateTimeOverlayRoute**:
 
@@ -140,6 +123,51 @@ class UIDateTimePrompt extends StatefulWidget {
 ## Example
 
 The ***/example*** folder has examples for all methods.
+
+## Helper widget
+
+DateTime is a collection of eight(8) fields:
+
+- year
+- month
+- day
+- hour
+- minute
+- second
+- milliSecond(mS)
+- microSecond(uS)
+
+While the **DateTimePickerWheel** on manages year-to-second, know which **DateTimeUnit** are being used can be helpful.
+
+```dart
+class UISelectDateTimeUnit extends StatefulWidget {
+  final DateTimeUnit initialUnit;
+  final Function(DateTimeUnit) onChanged;
+  final bool showMillsecond;
+  final bool showMicroSecond;
+  
+  const UISelectDateTimeUnit({
+    super.key,
+    required this.initialUnit,
+    required this.onChanged,
+    this.showMillsecond = false,
+    this.showMicroSecond = false,
+  });
+}
+```
+
+Displays update to eight(8)[Default is six(6)] radio buttons for each **DateTimeUnit** and
+a callback when tapped. This can be used for settings, or changing DateTime display content
+in-line with an app.
+
+### NOTE
+
+**DateTimeUnit** is defined is a separate package. Update **pubspec.yaml**
+
+```yaml
+  dart_datetime:
+    git: https://github.com/GitHubStuff/dart_datetime.git
+```
 
 ## Finally
 

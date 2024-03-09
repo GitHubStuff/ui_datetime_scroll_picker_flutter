@@ -40,6 +40,7 @@ class HomeScaffold extends StatelessWidget {
           const SizedBox(height: 10),
           UISelectDateTimeUnit(
             initialUnit: DateTimeUnit.year,
+            showMillsecond: true,
             onChanged: (unit) => debugPrint(unit.toString()),
           ),
         ],
