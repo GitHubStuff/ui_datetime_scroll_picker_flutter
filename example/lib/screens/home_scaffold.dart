@@ -1,5 +1,6 @@
 // ignore_for_file: sort_child_properties_last
 
+import 'package:dart_datetime/dart_datetime.dart';
 import 'package:flutter/material.dart';
 
 import '../gen/assets.gen.dart';
@@ -36,6 +37,11 @@ class HomeScaffold extends StatelessWidget {
                   debugPrint(dateTime.toIso8601String())),
           const SizedBox(height: 10),
           const SampleDateTimeWidget(),
+          const SizedBox(height: 10),
+          UISelectDateTimeUnit(
+            initialUnit: DateTimeUnit.year,
+            onChanged: (unit) => debugPrint(unit.toString()),
+          ),
         ],
       ),
     );

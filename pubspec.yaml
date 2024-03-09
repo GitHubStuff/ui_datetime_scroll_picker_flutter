@@ -1,6 +1,6 @@
 name: ui_datetime_scroll_picker_flutter
 description: "A new Flutter package project."
-version: 0.0.1
+version: 0.0.2
 home_page: http://www.icodeforyou.com
 publish_to: none # Remove this line if you wish to publish to pub.dev
 
@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   auto_size_text: ^3.0.0 # Flutter widget that automatically resizes text to fit perfectly within its bounds.
+  dart_datetime:
+    git: https://github.com/GitHubStuff/dart_datetime.git
   intl: ^0.19.0
   ui_aqua_button_flutter:
     git: https://github.com/GitHubStuff/ui_aqua_button_flutter.git
