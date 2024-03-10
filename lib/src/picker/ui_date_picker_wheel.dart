@@ -74,7 +74,7 @@ class _UIDatePickerWheel extends State<UIDatePickerWheel> {
   void initState() {
     super.initState();
     selectedYear = widget.dateTime.year;
-    selectedMonth = widget.dateTime.month + 12;
+    selectedMonth = widget.dateTime.month;
     selectedDay = widget.dateTime.day;
     previousDateTime = widget.dateTime;
     backgroundColor = widget.backgroundColor;
@@ -83,7 +83,7 @@ class _UIDatePickerWheel extends State<UIDatePickerWheel> {
       initialItem: selectedYear - _minYear,
     );
     monthController = FixedExtentScrollController(
-      initialItem: selectedMonth - 1,
+      initialItem: selectedMonth + DateTime.monthsPerYear - 1,
     );
     dayController = FixedExtentScrollController(
       initialItem:
@@ -116,13 +116,16 @@ class _UIDatePickerWheel extends State<UIDatePickerWheel> {
         DatePickerItem.month,
         monthController,
         1,
-        DateTime.monthsPerYear * _wrapping,
+        DateTime.monthsPerYear * _wrapping + 1,
         selectedMonth,
         (month) {
+          while (month > DateTime.monthsPerYear) {
+            month -= DateTime.monthsPerYear;
+          }
           final maxDays = getMaxDaysInMonth(selectedYear, month);
           setState(() {
             selectedDay = min(selectedDay, maxDays);
-            selectedMonth = (month % DateTime.monthsPerYear);
+            selectedMonth = month;
             dayController.jumpToItem(selectedDay - 1 + maxDays);
           });
           updateDateTime();
@@ -218,7 +221,7 @@ class _UIDatePickerWheel extends State<UIDatePickerWheel> {
   void updateDateTime() {
     final updatedDateTime = DateTime(
       selectedYear,
-      selectedMonth % DateTime.monthsPerYear,
+      selectedMonth,
       selectedDay,
     );
     if (previousDateTime != updatedDateTime) {
